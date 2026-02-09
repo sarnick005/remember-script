@@ -7,7 +7,7 @@ Goal
 - Each command should have an `id`, `tag`, `command` and `description`
 - `remember ls` command will print all commands in the database.
 - `remember ls git` command will print all git commands in the database.
-- `remember save "docker compose up" --tag docker` to add a new command
+- `remember save "docker compose up" --tag docker --desc "This is the description"` to add a new command
 -
 
 Tech Stack
