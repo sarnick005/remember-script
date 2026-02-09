@@ -14,7 +14,7 @@ def parse_input_command(command: str) -> bool:
         return False
 
     # remember ls
-    if len(parts) == 2 and parts[1] == "ls":
+    if (len(parts) == 2 and parts[1] == "ls") or len(parts) == 1:
         fetch_all_commands()
         return True
 

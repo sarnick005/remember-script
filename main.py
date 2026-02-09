@@ -2,7 +2,7 @@ from remember.cli import parse_input_command
 
 
 def main():
-    command = input("")
+    command = input("").lower()
     parse_input_command(command)
 
 

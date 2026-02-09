@@ -3,14 +3,27 @@
 Goal
 
 - A simple script that runs when invoked by `remember` command.
-- Basic usage like `remember git stash`, `remember docker prune` etc command easily by efficient searching based on tags like `git` or `docker`, commands like `stash` or `prune` or simple search any word if it's in database it will show.
 - Each command should have an `id`, `tag`, `command` and `description`
-- `remember ls` command will print all commands in the database.
-- `remember ls git` command will print all git commands in the database.
-- `remember save "docker compose up" --tag docker --desc "This is the description"` to add a new command
--
+- List all commands:
+  ```bash
+  remember ls
+  ```
+- List all commands with specific tag:
+  ```bash
+  remember ls git
+  ```
+- Search within tag and commands or description keywords:
+  ```bash
+  remember git stash
+  remember docker prune
+  ```
+- Save a new command:
+  ```bash
+  remember save "docker compose up" --tag docker --desc "This is the description"
+  ```
 
 Tech Stack
 
 - Python
 - Sqlite3
+- Rich (for pretty CLI output with colored tables)
