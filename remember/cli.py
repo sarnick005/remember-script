@@ -1,11 +1,11 @@
 from .db import create_db
-from .commands import save_command, fetch_commands
+from .commands import fetch_all_commands, save_command, fetch_commands
 import shlex
 
 
 def parse_input_command(command: str) -> bool:
     parts = shlex.split(command)
-    print(parts)
+    # print(parts)
     if not parts:
         return False
 
@@ -15,7 +15,7 @@ def parse_input_command(command: str) -> bool:
 
     # remember ls
     if len(parts) == 2 and parts[1] == "ls":
-        fetch_commands("ls")
+        fetch_all_commands()
         return True
 
     # remember ls git

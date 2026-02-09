@@ -1,5 +1,7 @@
 import sqlite3
 import uuid
+
+from remember.rich_cli import display_output
 from .db import DB_FILE
 
 
@@ -36,8 +38,19 @@ def fetch_commands(tag: str, command: str = None):
         else:
             res = cursor.execute("SELECT * FROM remember WHERE tag = ?",(tag,))
         rows = res.fetchall()
-        for row in rows:
-            print(row)
+        display_output(f"Displaying {tag} commands", rows)
+    except Exception as e:
+        print(f"Fetch error: {str(e)}")
+    finally:
+        conn.close()
+
+def fetch_all_commands():
+    try:
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+        res = cursor.execute("SELECT * FROM remember ORDER BY tag ASC")
+        rows = res.fetchall()
+        display_output("Displaying all commands", rows)
     except Exception as e:
         print(f"Fetch error: {str(e)}")
     finally:
